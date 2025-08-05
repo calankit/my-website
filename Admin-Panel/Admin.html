@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tailor Admin Panel</title>
+
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/home/suraj/Desktop/Tailor-website/Css/admin.css" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div id="wrapper" class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar-wrapper" class="bg-dark text-white p-3" style="min-width: 250px; height: 100vh;">
+            <div class="sidebar-heading text-white fw-bold mb-4 fs-4">Tailor Admin</div>
+
+            <button class="btn text-white w-100 text-start mb-3 fw-bold">
+                <i class="bi bi-speedometer2 me-2"></i> Dashboard
+            </button>
+
+            <!-- Slider Section -->
+            <button class="btn text-white w-100 text-start mb-2" data-bs-toggle="collapse" data-bs-target="#sliderMenu">
+                <i class="bi bi-images me-2"></i> Slider
+            </button>
+            <div class="collapse" id="sliderMenu">
+                <a href="addslider.html" class="text-decoration-none text-white ms-4 d-block my-1">Add Slider</a>
+                <a href="viewslider.html" class="text-decoration-none text-white ms-4 d-block my-1">View Sliders</a>
+            </div>
+
+            <!-- Services -->
+            <button class="btn text-white w-100 text-start mt-3 mb-2" data-bs-toggle="collapse"
+                data-bs-target="#serviceMenu">
+                <i class="bi bi-briefcase me-2"></i> Services
+            </button>
+            <div class="collapse" id="serviceMenu">
+                <a href="addservice.html" class="text-decoration-none text-white ms-4 d-block my-1">Add Service</a>
+                <a href="viewservice.html" class="text-decoration-none text-white ms-4 d-block my-1">View Services</a>
+            </div>
+
+            <!-- About -->
+            <button class="btn text-white w-100 text-start mt-3 mb-2" data-bs-toggle="collapse"
+                data-bs-target="#aboutMenu">
+                <i class="bi bi-info-circle me-2"></i> About
+            </button>
+            <div class="collapse" id="aboutMenu">
+                <a href="addabout.html" class="text-decoration-none text-white ms-4 d-block my-1">Update-About</a>
+
+            </div>
+
+            <!-- Settings -->
+            <button class="btn text-white w-100 text-start mt-3 mb-2" data-bs-toggle="collapse"
+                data-bs-target="#settingsMenu">
+                <i class="bi bi-gear me-2"></i> Settings
+            </button>
+            <div class="collapse" id="settingsMenu">
+                <a href="/home/suraj/Desktop/Tailor-website/Admin-Panel/update.html"
+                    class="text-decoration-none text-white ms-4 d-block my-1">Update</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div id="page-content-wrapper" class="flex-grow-1">
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-light bg-light border-bottom px-4 d-flex justify-content-between">
+                <button class="btn btn-outline-dark" id="menu-toggle"><i class="bi bi-list"></i></button>
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle fs-4 px-2" href="#" id="userMenu" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-person-circle"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                        <li><a class="dropdown-item" href="../Tailor-Website/index.html">Go to Site</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="Login.html">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Dashboard Cards -->
+            <div class="container-fluid mt-4">
+                <h2 class="mb-4 fw-bold">Dashboard</h2>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-md-4">
+                        <a href="/home/suraj/Desktop/Tailor-website/Admin-Panel/viewservice.html"
+                            class=" text-decoration-none">
+                            <div class="card bg-primary text-white text-center h-100">
+                                <div class="card-body">
+                                    <h5 class="text-white">Services</h5>
+                                    <p class="fs-4 text-white" id="serviceCount">0</p>
+                                </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <a href="/home/suraj/Desktop/Tailor-website/Admin-Panel/viewslider.html"
+                        class=" text-decoration-none">
+                        <div class="card bg-success text-white text-center h-100">
+                            <div class="card-body">
+                                <h5>Total Sliders</h5>
+                                <p class="fs-4" id="sliderCount">0</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="/home/suraj/Desktop/Tailor-website/Admin-Panel/viewabout.html"
+                        class=" text-decoration-none">
+                        <div class="card bg-warning text-white text-center h-100">
+                            <div class="card-body">
+                                <h5>About Us Entries</h5>
+                                <p class="fs-4" id="aboutCount">0</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Services Overview</h5>
+                            <canvas id="servicesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Sliders & About Overview</h5>
+                            <canvas id="sliderAboutChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-2 mt-auto text-center fw-bold fixed-bottom">
+            <small>Design by @CodeartisanLab</small>
+        </footer>
+    </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Dashboard Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById('menu-toggle').addEventListener('click', () => {
+                document.getElementById('wrapper').classList.toggle('toggled');
+            });
+
+            // Fetch data from localStorage
+            const services = JSON.parse(localStorage.getItem("services")) || [];
+            const sliders = JSON.parse(localStorage.getItem("sliders")) || [];
+            const about = JSON.parse(localStorage.getItem("aboutInfo")) || [];
+
+            // Set counts
+            document.getElementById("serviceCount").innerText = services.length;
+            document.getElementById("sliderCount").innerText = sliders.length;
+            document.getElementById("aboutCount").innerText = about.length;
+
+            // Services Chart
+            new Chart(document.getElementById('servicesChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Services Added',
+                        data: [0, 2, 2, 3, 4, services.length],
+                        borderColor: '#0d6efd',
+                        backgroundColor: 'rgba(13,110,253,0.2)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: true } }
+                }
+            });
+
+            // Sliders & About Chart
+            new Chart(document.getElementById('sliderAboutChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Sliders', 'About Us'],
+                    datasets: [{
+                        label: 'Entries',
+                        data: [sliders.length, about.length],
+                        backgroundColor: ['#198754', '#ffc107']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

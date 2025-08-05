@@ -1,0 +1,83 @@
+/* ========== Layout Fixes for Contact Page ========== */
+body {
+    margin: 0;
+    background-color: #f5f6fa;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Wrapper Layout */
+#wrapper {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar Fixed */
+#sidebar-wrapper {
+    width: 250px;
+    background-color: #343a40;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+   
+    z-index: 1000;
+}
+
+.sidebar-heading {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+    background-color: #212529;
+    color: #ffc107;
+}
+
+.side-bar button,
+.side-bar a {
+    font-size: 1rem;
+    text-align: left;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    border: none;
+    background: none;
+    transition: 0.3s;
+}
+
+.side-bar button:hover,
+.side-bar a:hover {
+    background-color: #495057;
+    color: #ffc107;
+    border-radius: 4px;
+}
+
+.collapse a {
+    padding-left: 30px;
+    font-size: 0.9rem;
+}
+
+/* Main Scrollable Section */
+.main-content {
+    margin-left: 200px;
+   
+    padding: 40px;
+    background-color: #f8f9fa;
+}
+
+/* Contact Form Box */
+.form-section {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    margin: 0 auto;
+}
+
+/* Buttons */
+.btn-primary:hover {
+    background-color: #0d6efd;
+}
+

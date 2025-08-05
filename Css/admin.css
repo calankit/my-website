@@ -1,0 +1,97 @@
+/* Sidebar & Wrapper */
+#wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+#sidebar-wrapper {
+    min-width: 240px;
+    max-width: 250px;
+    background-color: #343a40;
+    transition: all 0.3s;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: -240px;
+}
+
+.sidebar-heading {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+
+    background-color: #212529;
+}
+
+.side-bar h4 {
+    color: #fff;
+    padding: 12px 20px;
+    margin: 0;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.side-bar h4:hover {
+    background-color: #495057;
+    color: #ffc107;
+    border-radius: 4px;
+}
+
+.side-bar .collapse h4 {
+    padding-left: 30px;
+    font-size: 0.9rem;
+}
+
+.side-bar .collapse h4:hover {
+    color: #17a2b8;
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Content sections */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Body & Navbar tweaks */
+body {
+    background-color: #f5f6fa;
+    overflow-x: hidden;
+}
+
+/* Remove dropdown arrow from the icon link */
+.nav-link.dropdown-toggle::after {
+    display: none !important;
+}
+
+/* Remove extra padding */
+.navbar .nav-link.dropdown-toggle {
+    padding-right: 0.5rem !important;
+}
+
+.sidebar-btn {
+    transition: background-color 0.3s;
+}
+
+.sidebar-btn:hover {
+    background-color: #495057;
+    color: #ffc107;
+    border-radius: 4px;
+}
+
+/* Card Hover Effect */
+.card:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
